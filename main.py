@@ -23,9 +23,9 @@ def main():
             phone.append(info[0])
             password.append(info[1])
             guardianPhone.append(info[2])
-	        egc.append(info[3])
-	        roomnb.append(info[4])
-	        sckey.append(info[5])
+            egc.append(info[3])
+            roomnb.append(info[4])
+            sckey.append(info[5])
         except:
             break
 
