@@ -1,5 +1,4 @@
-<div align="center"> 
-<h1 align="center">广东水利电力学院完美校园签到</h1>
+<h1 align="center">💧广东水利电力学院完美校园签到</h1>
 <img src="https://img.shields.io/github/issues/srcrs/Perfect_Campus_AutoSignIn?color=green">
 <img src="https://img.shields.io/github/stars/srcrs/Perfect_Campus_AutoSignIn?color=yellow">
 <img src="https://img.shields.io/github/forks/srcrs/Perfect_Campus_AutoSignIn?color=orange">
@@ -82,3 +81,7 @@ USERS | 手机号,密码,监护人手机号,SCKEY
 [HAUT_autoCheck](https://github.com/YooKing/HAUT_autoCheck)
 
 [wanmei_campus](https://github.com/zhongbr/wanmei_campus)
+
+[Perfect_Campus_AutoSignIn](https://github.com/srcrs/Perfect_Campus_AutoSignIn)
+
+[17wanxiaoCheckin-Actions](https://github.com/ReaJason/17wanxiaoCheckin-Actions)
