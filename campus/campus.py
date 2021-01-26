@@ -1,7 +1,10 @@
-import requests, random, json, hashlib
+import hashlib
+import json
+import requests
+import urllib3
+
 from .campus_card import des_3
 from .campus_card import rsa_encrypt as rsa
-import urllib3
 
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
@@ -25,13 +28,11 @@ class CampusCard:
             self.exchange_secret()
             self.login(phone, password)
 
-
     @staticmethod
     def __create_blank_user__():
         """
         当传入的已登录设备信息不可用时，虚拟一个空的未登录设备
         :return: 空设备信息
-        2021.01.26: deviceId:设备的IMEI码，设备需要用验证码方式登录完美校园后才有效（强烈建议用模拟器）
         """
         rsa_keys = rsa.create_key_pair(1024)
         return {
@@ -112,7 +113,7 @@ class CampusCard:
             self.user_info["exchangeFlag"] = False
         return resp["result_"]
 
-    #如果不请求一下 token 会失效
+    # 如果不请求一下 token 会失效
     def get_main_info(self):
         resp = requests.post(
             "https://reportedh5.17wanxiao.com/api/clock/school/getUserInfo",
@@ -128,7 +129,7 @@ class CampusCard:
             verify=False
         ).json()
         if resp["msg"] == '成功':
-             return resp["userInfo"]
+            return resp["userInfo"]
         print(resp)
         return resp
 
@@ -148,6 +149,3 @@ def open_device(f):
     except:
         device = None
     return device, f
-
-
-

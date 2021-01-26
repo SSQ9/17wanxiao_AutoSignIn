@@ -25,8 +25,8 @@ def main():
         except BaseException:
             break
     # 提交打卡
-    print("-----------------------")
     for index, value in enumerate(phone):
+        print("-----------------------")
         print("开始获取用户%s信息" % (value[-4:]))
         count = 0
         msg = "null"
@@ -48,6 +48,7 @@ def main():
                     count = count + 1
                     print('%s打卡失败，开始第%d次重试...' % (value[-6:], count))
                     time.sleep(301)
+
             except Exception as err:
                 print(err)
                 msg = '出现错误'
@@ -60,10 +61,11 @@ def main():
     for _ in range(1):
         try:
             if sckey[0]:
-                print('开始推送...')
+                print('开始Wechat推送...')
                 WechatPush(title, sckey[0], success, fail, result)
+                break
         except:
-            print("推送出错！")
+            print("WeChat推送出错！")
 
 
 # 时间函数
@@ -118,8 +120,8 @@ def check_in(token):
     sign_url = "https://reportedh5.17wanxiao.com/sass/api/epmpics"
     jsons = GetUserJson(token)
     # print(jsons)
-
     # 提交打卡
+    time.sleep(2)
     res = requests.post(sign_url, json=jsons, timeout=10).json()
     print(res)
     return res
