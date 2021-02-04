@@ -111,7 +111,7 @@ def GetUserJson(token):
                            for i in data['cusTemplateRelations']],
         }
     }
-    # print(post_dict)
+    print(post_dict)
     return post_dict
 
 
