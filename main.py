@@ -4,12 +4,14 @@ import requests
 import datetime
 from campus import CampusCard
 from campus.campus_card.rsa_encrypt import chrysanthemum
+from qqmail import sendEmail
+
 petals = chrysanthemum()
 
 
 def main():
     # sectets字段录入
-    sckey, success, failure, result, phone, password = [], [], [], [], [], []
+    sckey, success, failure, result, phone, password, mail, key = [], [], [], [], [], [], [], []
     # 多人循环录入
     while True:
         try:
@@ -17,34 +19,38 @@ def main():
             info = users.split(',')
             phone.append(info[0])
             password.append(info[1])
-            sckey.append(info[2])
+            mail.append(info[2])
+            key.append(info[3])
+            sckey.append(info[4])
         except BaseException:
             break
 
     # 提交打卡
     print("-----------------------")
     for index, value in enumerate(phone):
-        count, msg, run = 0, "null", False
+        count, msg = 0, "null"
         print("开始获取用户%s信息" % (value[-4:]))
-        while count < 3:
+        while count < 2:
             try:
                 campus = CampusCard(phone[index], password[index])
                 token = campus.user_info["sessionId"]
-                time.sleep(1)
                 res = check_in(token).json()
                 strTime = GetNowTime()
                 if res['code'] == '10000':
                     success.append(value[-4:])
                     msg = value[-4:] + "-打卡成功-" + strTime
                     result = res
-                    run = False
+                    print(mail[index])
+                    print(key[0])
+                    qmail = sendEmail(mail[index], key[0])
+                    print(qmail)
                     break
                 else:
                     failure.append(value[-4:])
                     msg = value[-4:] + "-失败-" + strTime
                     count = count + 1
-                    print('%s打卡失败，开始第%d次重试...' % (value[-6:], count))
-                    result = res
+                    print('%s打卡失败，开始第%d次重试...' % (value[-4:], count))
+                    result = campus
                     time.sleep(2)
 
             except Exception as err:
@@ -58,7 +64,7 @@ def main():
     title = "成功: %s 人,失败: %s 人" % (len(success), len(fail))
     for _ in range(1):
         try:
-            if not (sckey is None) & run:
+            if not (sckey is None):
                 print('开始Wechat推送...')
                 WechatPush(title, sckey[0], success, fail, result)
                 break

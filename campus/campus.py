@@ -2,9 +2,7 @@ import hashlib
 import json
 import requests
 import urllib3
-
-from .campus_card import des_3
-from .campus_card import rsa_encrypt as rsa
+from .campus_card import rsa_encrypt as rsa, des_3
 from .campus_card.rsa_encrypt import chrysanthemum
 
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
@@ -109,9 +107,13 @@ class CampusCard:
             self.user_info["login"] = True
             self.user_info["exchangeFlag"] = False
             print(resp['message_'])
+            return resp["result_"]
         else:
-            print(resp['message_'])
-        return resp["result_"]
+            errlogin = resp['message_']
+            print(errlogin)
+            return errlogin
+
+
 
     def save_user_info(self):
         """
