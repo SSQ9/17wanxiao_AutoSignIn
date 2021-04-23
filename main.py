@@ -26,8 +26,8 @@ def main():
             break
             
     Semail = sendEmail(mail[0], key[0])
-        print(Semail)
-        print("-----------------------")
+    print(Semail)
+    print("-----------------------")
     
 if __name__ == '__main__':
     main()
