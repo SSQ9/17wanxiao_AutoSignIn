@@ -6,7 +6,7 @@ from campus import CampusCard
 from campus.campus_card.rsa_encrypt import chrysanthemum
 from qqmail import sendEmail
 
-petals = chrysanthemum()
+#petals = chrysanthemum()
 
 
 def main():
@@ -25,11 +25,8 @@ def main():
         except BaseException:
             break
             
-            try:
-                Semail = sendEmail(mail[index], key[0])
-                print(Semail)
-            except Exception:
-                print('邮箱异常')
+    Semail = sendEmail(mail[0], key[0])
+        print(Semail)
         print("-----------------------")
     
 if __name__ == '__main__':
