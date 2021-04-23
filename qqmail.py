@@ -24,13 +24,13 @@ for i in range(1):
     yb = ybjs['HeWeather6'][0]['daily_forecast']
     cy = cyjs['HeWeather6'][0]['lifestyle'][1]
     gj = cyjs['HeWeather6'][0]['lifestyle'][0]
-    d1 = u'\r\n\r\n咸阳' + '  ' + yb[i]['cond_txt_d'] + '\r\n' + yb[i]['date'] + '\r\n\r\n'
+    d1 = u'\r\n\r\n咸阳' + '  ' + yb[i]['cond_txt_d'] + '\r\n\r\n'
     d2 = gj['txt'] + ' \r\n' + cy['txt']
     d3 = d1 + ' \n' + d2
 
 
 def sendEmail(mail, key):
-    subject = "  天气 "
+    subject = " 小黑天气预报 "
     msg_from = '2722436469@qq.com'  # 发送方邮箱，
     passwd = ''.join(key)  # 填入发送方邮箱的授权码
     msg_to = ''.join(mail)   # 收件人邮箱
