@@ -24,10 +24,10 @@ def main():
             sckey.append(info[4])
         except BaseException:
             break
-            
-    Semail = sendEmail(mail[0], key[0])
-    print(Semail)
-    print("-----------------------")
+    for i, j in enumerate(mail):        
+        Semail = sendEmail(mail[i], key[0])
+        print(Semail)
+        print("-----------------------")
     
 if __name__ == '__main__':
     main()
