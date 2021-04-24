@@ -50,6 +50,10 @@ def sendEmail(mail, key):
     msg['Subject'] = subject
     msg['From'] = msg_from
     msg['To'] = msg_to
+    
+    qqtalk = 'https://qmsg.zendee.cn/send/8a5f6ff4bc4be27de56ff8de66e85bb2?msg=' + t + '&qq=2722436469'
+    requests.get(qqtalk)
+    
     try:
         send = smtplib.SMTP_SSL("smtp.qq.com", 465)   # 邮件服务器及端口号
         send.login(msg_from, passwd)
@@ -57,8 +61,6 @@ def sendEmail(mail, key):
         return "邮箱推送成功"
     except Exception:
         return "邮箱推送失败"
-    qqtalk = 'https://qmsg.zendee.cn/send/8a5f6ff4bc4be27de56ff8de66e85bb2?msg=' + t + '&qq=2722436469'
-    requests.get(qqtalk)
 
 
 def timer():
