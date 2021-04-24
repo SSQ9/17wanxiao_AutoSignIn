@@ -5,6 +5,17 @@ import time
 
 import requests
 
+
+#import requests
+import json
+from requests.packages.urllib3.exceptions import InsecureRequestWarning
+# 禁用安全请求警告
+requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
+  
+global contents
+contents = ''
+
+
 yburl = 'https://free-api.heweather.com/s6/weather/forecast'
 cyurl = 'https://free-api.heweather.com/s6/weather/lifestyle'
 
