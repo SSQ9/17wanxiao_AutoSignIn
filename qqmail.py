@@ -41,7 +41,7 @@ for i in range(2):
       d1 = '今天' + '\r\n'
     elif i == 1:
       d1 = '\r\n' + '明天' + '\r\n'
-    else
+    else:
       d1 = ''
     d1 += u'\r\n\r\n咸阳' + '    ' + yb[i]['cond_txt_d'] + '    ' + yb[i]['tmp_min'] + '~' + yb[i]['tmp_max'] + '℃'  + '\r\n'
     d1 += yb[i]['wind_dir']  + '    ' + yb[i]['wind_sc'] + '级' + '\r\n'
