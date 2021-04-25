@@ -31,14 +31,20 @@ cyreq = requests.get(cyurl, params=value)
 ybjs = ybreq.json()
 cyjs = cyreq.json()
 
-for i in range(1):
+d3 = ''
+for i in range(2):
     yb = ybjs['HeWeather6'][0]['daily_forecast']
     cy = cyjs['HeWeather6'][0]['lifestyle'][1]
     gj = cyjs['HeWeather6'][0]['lifestyle'][0]
-    d1 = u'\r\n\r\n咸阳' + '    ' + yb[i]['cond_txt_d'] + '    ' + yb[i]['tmp_min'] + '—' + yb[i]['tmp_max'] + '℃'  + '\r\n'
-    d1 += yb[i]['wind_dir']  + '    ' + yb[i]['wind_sc'] + '级' + '\r\n\r\n'
+    d1 = ''
+    if i = 0:
+      d1 = '今天' + '\r\n'
+    else if i = 1:
+      d1 = '\r\n' + '明天' + '\r\n'
+    d1 += u'\r\n\r\n咸阳' + '    ' + yb[i]['cond_txt_d'] + '    ' + yb[i]['tmp_min'] + '~' + yb[i]['tmp_max'] + '℃'  + '\r\n'
+    d1 += yb[i]['wind_dir']  + '    ' + yb[i]['wind_sc'] + '级' + '\r\n'
     d2 = gj['txt'] + ' \r\n' + cy['txt']
-    d3 = d1 + ' \n' + d2
+    d3 += d1 + ' \n' + d2
 
 
 def sendEmail(mail, key):
@@ -65,8 +71,9 @@ def sendEmail(mail, key):
 
 
 def timer():
-    now_time = int(time.time())
-    now_time += 28800
-    t = time.strftime("%Y-%m-%d   %H:%M ", time.localtime(now_time))
+#    now_time = int(time.time())
+#    now_time += 28800
+#    t = time.strftime("%Y-%m-%d   %H:%M ", time.localtime(now_time))
+    t = ''
     t += d3
     return t 
