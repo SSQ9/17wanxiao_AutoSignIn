@@ -38,9 +38,9 @@ for i in range(2):
     gj = cyjs['HeWeather6'][0]['lifestyle'][0]
     d1 = ''
     if i == 0:
-      d1 = '今天' + '\r\n'
+      d1 = '今天'
     elif i == 1:
-      d1 = '\r\n' + '明天' + '\r\n'
+      d1 = '\r\n\r\n' + '明天'
     else:
       d1 = ''
     d1 += u'\r\n\r\n咸阳' + '    ' + yb[i]['cond_txt_d'] + '    ' + yb[i]['tmp_min'] + '~' + yb[i]['tmp_max'] + '℃'  + '\r\n'
