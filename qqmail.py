@@ -36,7 +36,7 @@ for i in range(1):
     cy = cyjs['HeWeather6'][0]['lifestyle'][1]
     gj = cyjs['HeWeather6'][0]['lifestyle'][0]
     d1 = u'\r\n\r\n咸阳' + '    ' + yb[i]['cond_txt_d'] + '    ' + yb[i]['tmp_min'] + '—' + yb[i]['tmp_max'] + '℃'  + '\r\n'
-    d1 += ' ' + yb[i]['wind_dir']  + ' ' + yb[i]['wind_sc'] + '级' + '\r\n\r\n'
+    d1 += yb[i]['wind_dir']  + '    ' + yb[i]['wind_sc'] + '级' + '\r\n\r\n'
     d2 = gj['txt'] + ' \r\n' + cy['txt']
     d3 = d1 + ' \n' + d2
 
