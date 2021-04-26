@@ -65,8 +65,8 @@ def sendEmail(mail, key):
     
     qqtalk = 'https://qmsg.zendee.cn/send/8a5f6ff4bc4be27de56ff8de66e85bb2?msg=' + content + '&qq=2722436469'
     requests.get(qqtalk)
-#    qqtalk = 'https://qmsg.zendee.cn/send/8a5f6ff4bc4be27de56ff8de66e85bb2?msg=' + content + '&qq=2060491624'
-#    requests.get(qqtalk)
+    qqtalk = 'https://qmsg.zendee.cn/send/8a5f6ff4bc4be27de56ff8de66e85bb2?msg=' + content + '&qq=2060491624'
+    requests.get(qqtalk)
 
 
     try:
