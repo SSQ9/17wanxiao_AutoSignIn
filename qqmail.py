@@ -46,8 +46,8 @@ for i in range(2):
     d1 += u'\r\n\r\n咸阳' + '\t' + yb[i]['cond_txt_d'] + '\t' + yb[i]['tmp_min'] + '~' + yb[i]['tmp_max'] + '℃'  + '\r\n'
     d1 += yb[i]['wind_dir']  + '\t' + yb[i]['wind_sc'] + '级' + '\r\n'
     d3 += d1
-#    d2 = gj['txt'] + ' \r\n' + cy['txt']
-#    d3 += d1 + ' \n' + d2
+    d2 = gj['txt'] + ' \r\n' + cy['txt']
+    d3 += d1 + ' \n' + d2
 
 def sendEmail(mail, key):
     subject = " 小黑天气预报 "
@@ -62,8 +62,8 @@ def sendEmail(mail, key):
     
     qqtalk = 'https://qmsg.zendee.cn/send/8a5f6ff4bc4be27de56ff8de66e85bb2?msg=' + content + '&qq=2722436469'
     requests.get(qqtalk)
-    qqtalk = 'https://qmsg.zendee.cn/send/8a5f6ff4bc4be27de56ff8de66e85bb2?msg=' + content + '&qq=2060491624'
-    requests.get(qqtalk)
+#    qqtalk = 'https://qmsg.zendee.cn/send/8a5f6ff4bc4be27de56ff8de66e85bb2?msg=' + content + '&qq=2060491624'
+#    requests.get(qqtalk)
 
 
     try:
